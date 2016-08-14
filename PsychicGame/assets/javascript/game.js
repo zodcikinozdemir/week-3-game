@@ -48,10 +48,10 @@ var psychicGame = {
 		letter = thinkALetter();
     	document.querySelector('#game').innerHTML = this.toHTML();
     },
-    win : function() {
+    win : function(userLetter) {
     	this.wins ++;
     	this.initGame();
-    	var msg = "WIN - Correct letter: "+letter; 
+    	var msg = "WIN - Correct letter: "+userLetter; 
     	alert(msg);
     },
     wrongGuess : function(userLetter) {
