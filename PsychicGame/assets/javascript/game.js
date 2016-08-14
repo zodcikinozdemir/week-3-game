@@ -51,7 +51,7 @@ var psychicGame = {
     },
     win : function(userLetter) {
     	this.wins ++;
-    	var msg = "YOU WIN - \n\tYou pressed correct letter: "+userLetter; 
+    	var msg = "YOU WIN - \nYou pressed correct letter: "+userLetter; 
     	alert(msg);
     	this.initGame();
     },
@@ -62,7 +62,7 @@ var psychicGame = {
 			document.querySelector('#game').innerHTML = this.toHTML();
 			if(this.guessesLeft == 0) {
 			    this.losses++;
-			    var msg = "No more guesses LEFT! \n\n\tYou pressed "+userLetter+" \n\tCorrect Letter : "+this.letter; 
+			    var msg = "No more guesses LEFT! \n\nYou pressed "+userLetter+" \nCorrect Letter : "+this.letter; 
     			alert(msg);
     			this.initGame();	
 			}
