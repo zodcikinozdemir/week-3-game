@@ -11,8 +11,11 @@ Array.prototype.contains = function(elem) {
 }
 
 function thinkALetter() {
-    	return letters[Math.floor(Math.random() * letters.length)];
+	    var letter = letters[Math.floor(Math.random() * letters.length)]; 
+    	console.log(letter);
+    	return letter; //letters[Math.floor(Math.random() * letters.length)];
 }
+
 
 var psychicGame = {
 	//# of times the user has guessed the letter correctly
@@ -41,29 +44,27 @@ var psychicGame = {
 		return html;
     },
     initGame : function() {
-    	this.losses = 0;
-		this.guessesLeft = 10;
+    	this.guessesLeft = 10;
 		this.guesses = [];
+		this.letter = thinkALetter();
 		document.querySelector('#game').innerHTML = this.toHTML();
-		letter = thinkALetter();
-    	document.querySelector('#game').innerHTML = this.toHTML();
     },
     win : function(userLetter) {
     	this.wins ++;
-    	this.initGame();
-    	var msg = "WIN - Correct letter: "+userLetter; 
+    	var msg = "WIN - You pressed correct letter: "+userLetter; 
     	alert(msg);
+    	this.initGame();
     },
     wrongGuess : function(userLetter) {
     	if(this.guesses.contains(userLetter) == false) {
-    		this.losses++;
-			this.guessesLeft--;
+    		this.guessesLeft--;
 			this.guesses.push(userLetter);
 			document.querySelector('#game').innerHTML = this.toHTML();
 			if(this.guessesLeft == 0) {
-				var msg = "No more guesses LEFT! Letter : "+this.letter; 
+			    this.losses++;
+			    var msg = "No more guesses LEFT! \nYou pressed "+userLetter+" \nCorrect Letter : "+this.letter; 
     			alert(msg);
-    			initGame();	
+    			this.initGame();	
 			}
 		} else {
 			var msg = "Duplicate Letter : "+userLetter; 
