@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Hangman Game</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 	<script type="text/javascript" src="assets/javascript/game.js"></script>
@@ -10,26 +11,67 @@
 <body>
 
 <header class="header">
-<h1 style="color:#4aaaa5">Hangman Game</h1>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+       <button type="button" class="navbar-toggle" data-toggle="collapse">
+        	<span class="icon-bar"></span>
+        	<span class="icon-bar"></span>
+     	</button>
+     	<a class="navbar-brand" href="#">Hangman Game 
+        <img src="assets/images/disney.jpg" width = 100 height = 100 
+        alt="Hangman Game"></img>
+      </a> 
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a href="#">About</a></li>
+        <li><a href="#">Help</a></li> 
+      </ul>
+    </div>
+  </div>
+</nav>
 </header>
 
 <div class="container">
 	<div class="row" >
-		<div class="col-sm-6" style="background:#fff">
-			<img src="http://placehold.it/350x150">
+    <div class="col-sm-2"></div>
+		<div class="col-sm-3">
+			<img  id="picture" width=200 height = 200 
+           class="img-circle img-responsive auth-image"></img>
 		</div>
-		<div class="col-sm-6">
-			<div class="row">
-			<img src="http://placehold.it/350x150">
+		<div class="col-sm-5">
+			<div class="row span6">  
+			  <p>
+        <strong>Please Press any key to get started!</strong>
+        </p>
+        <table>
+        <tr>
+          <th>Wins   : </th><td><text id="wins">0</text></td>
+        </tr>
+        <tr>
+          <th>Losses : </th><td><text id="losses">0</text></td>
+        </tr>
+        </table>
+        <p><strong>Current Movie</strong></p>
+        <p><text id="currentMovie"> ------ </text></p>
 			</div>
-			<div class="row">
-			<img src="http://placehold.it/350x150">
+			<div class="row span6">
+			<table>
+        <tr>
+          <th># Guesses Remaining : </th>
+          <td><text id="guessesLeft">12</text></td>
+        </tr>
+      </table>
+      <p>Letters Already Guessed</p>
+      <p><text id="lettersGuessed"> ------ </text></p>
 			</div>
  		</div>
+    <div class="col-sm-2"></div>
 	</div>
 </div>
 
-  <footer>
+  <footer class="footer">
     <div class="row">
         <div class="col-lg-12">
             <p>Copyright &copy; odcikin@msn.com</p>

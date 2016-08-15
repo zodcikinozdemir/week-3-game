@@ -1,1 +1,56 @@
 @import url("reset.css");
+
+* {
+	margin: 0;
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+  	margin: 0;
+  	height:90%;
+    width: 100%;
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    background-image: url("../images/background.gif");
+    background-repeat: repeat;
+}
+
+header {
+	background: #fff;
+}
+
+footer, .push {
+    margin: 10px 0;
+	height: 55px; 
+}
+/*end sticky footer stuff*/
+
+footer {
+	position: absolute;
+    bottom: 0;
+    width: 100%;
+ 	padding: 20px 0;
+	background: #666;
+	color: #fff;
+	clear: both;
+	border-top: 8px solid #4aaaa5;
+	font-size: 12px;
+	text-align: center;
+}
+
+.span6 {
+	border:solid 2px black;
+	background-color:grey;
+	padding : 20px;  
+}
+
+p {
+	text-align: center;
+	padding:10px;
+} 
+
+td {
+	text-align: center;	
+}
