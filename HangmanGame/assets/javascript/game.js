@@ -92,5 +92,7 @@ document.onkeyup = function(event) {
     					document.querySelector('#losses').innerHTML = this.losses;
 					}
 				}
+			}
 		}
+	}
 }
