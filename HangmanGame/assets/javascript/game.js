@@ -18,12 +18,12 @@ String.prototype.replaceAt=function(index, char) {
 }
 
 var WaltDisneyMovies = [
-	{ name : "aladdin", image: "assets/images/Aladdin.jpg" },
-	{ name : "cinderalla", image: "assets/images/Cinderalla.jpg" },
-	{ name : "zootopia", image: "assets/images/Zootopia.jpg" },
-	{ name : "frozen", image: "assets/images/Frozen.jpg" },
-	{ name : "mulan", image: "assets/images/Mulan.jpg" },
-	{ name : "hercules", image: "assets/images/Hercules.jpg" }
+	{ name : "aladdin", image: "assets/images/aladdin.jpg" },
+	{ name : "cinderalla", image: "assets/images/cinderalla.jpg" },
+	{ name : "zootopia", image: "assets/images/zootopia.jpg" },
+	{ name : "frozen", image: "assets/images/frozen.jpg" },
+	{ name : "mulan", image: "assets/images/mulan.jpg" },
+	{ name : "hercules", image: "assets/images/hercules.jpg" }
 ];
 
 var hangmanGame = {
