@@ -88,8 +88,8 @@ document.onkeyup = function(event) {
 						gameStarted = false;
 						document.querySelector('#picture').src = hangmanGame.movie.image;
 						hangmanGame.losses++
-						document.querySelector('#wins').innerHTML = this.wins;
-    					document.querySelector('#losses').innerHTML = this.losses;
+						document.querySelector('#wins').innerHTML = hangmanGame.wins;
+    					document.querySelector('#losses').innerHTML = hangmanGame.losses;
 					}
 				}
 			}
