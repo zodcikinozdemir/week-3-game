@@ -1,7 +1,6 @@
 # week-3-game(s)
 
-The Psychic Game
-
+Option One : The Psychic Game
 
 Guess what letter I'm thinking of
 
@@ -13,8 +12,7 @@ Guesses Left: # of guesses left. This will update
 
 Your Guesses so far: # of times the user has failed to guess the letter correctly after exhausting all guesses
 
-
-Option Two: Hangman Game - you can get 10/10
+Option Two: Hangman Game 
 
 
 Choose a theme for your game (G, PG, PG-13 and R rated)
@@ -38,9 +36,3 @@ Number of Guesses Remaining: # of guesses remaining for the user
 Letters Already Guessed: Letters the user has guessed (e.g L Z Y H)
 
 After the user wins/loses the game should automatically choose another word and make the user play it.
-
-- Bonuses
-
-Play a sound or song when the user guesses the word correctly - in our case it was a song by the artist
-Style your game so that it looks like your theme.
-Organize your game code as an object, except for the key events to get the letter guessed.
