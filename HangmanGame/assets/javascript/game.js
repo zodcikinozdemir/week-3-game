@@ -11,11 +11,19 @@ Array.prototype.contains = function(elem) {
 	return false;
 }
 
+String.prototype.replaceAt=function(index, char) {
+    var a = this.split("");
+    a[index] = char;
+    return a.join("");
+}
+
 var WaltDisneyMovies = [
-	{ name : "Aladdin", image: "assets/images/Aladdin.jpg" },
-	{ name : "Cinderalla", image: "assets/images/Cinderalla.jpg" },
-	{ name : "Zootopia", image: "assets/images/Zootopia.jpg" },
-	{ name : "Frozen", image: "assets/images/Frozen.jpg" }
+	{ name : "aladdin", image: "assets/images/Aladdin.jpg" },
+	{ name : "cinderalla", image: "assets/images/Cinderalla.jpg" },
+	{ name : "zootopia", image: "assets/images/Zootopia.jpg" },
+	{ name : "frozen", image: "assets/images/Frozen.jpg" },
+	{ name : "mulan", image: "assets/images/Mulan.jpg" },
+	{ name : "hercules", image: "assets/images/Hercules.jpg" }
 ];
 
 var hangmanGame = {
@@ -29,19 +37,21 @@ var hangmanGame = {
 	guesses : [], 
     movie : null,
     name :"",
+    guessedCorrect:0,
 
     starANewGame : function () {
  		this.movie = WaltDisneyMovies[Math.floor(Math.random() * WaltDisneyMovies.length)]; 
    		console.log(this.movie);
    		this.guessesLeft = 12;
    		this.guesses = [];
+   		this.guessedCorrect = 0;
    		this.name = new Array(this.movie.name.length + 1).join( '-' );
    		document.querySelector('#wins').innerHTML = this.wins;
     	document.querySelector('#losses').innerHTML = this.losses;
     	document.querySelector('#guessesLeft').innerHTML = this.guessesLeft;
     	document.querySelector('#lettersGuessed').innerHTML = hangmanGame.guesses;
     	document.querySelector('#currentMovie').innerHTML = this.name;
-    	document.querySelector('#picture').src = "assets/images/background.jpg";
+    	document.querySelector('#picture').src = "assets/images/background.gif";
     },
 }
 
@@ -54,21 +64,33 @@ document.onkeyup = function(event) {
 			hangmanGame.starANewGame();
 		} else {
 			if(hangmanGame.guesses.contains(userLetter) == false) {
-				hangmanGame.guesses.push(userLetter);
-				hangmanGame.guessesLeft--;
-				document.querySelector('#guessesLeft').innerHTML = hangmanGame.guessesLeft;
-				document.querySelector('#lettersGuessed').innerHTML = hangmanGame.guesses;
-				if(hangmanGame.guessesLeft == 0) {
-					gameStarted = false;
-					document.querySelector('#picture').src = hangmanGame.movie.image;
+				var movieName = hangmanGame.movie.name;
+				if(movieName.includes(userLetter)) {
+					for (var i = 0; i< movieName.length; i++) {
+						if(movieName.charAt(i) == userLetter) {
+							hangmanGame.name = hangmanGame.name.replaceAt(i,userLetter);
+							hangmanGame.guessedCorrect++;
+						}
+					}
+					document.querySelector('#currentMovie').innerHTML = hangmanGame.name;
+					if(hangmanGame.guessedCorrect == movieName.length) {
+						gameStarted = false;
+						document.querySelector('#picture').src = hangmanGame.movie.image;
+						hangmanGame.wins++;
+						document.querySelector('#wins').innerHTML = hangmanGame.wins;
+    				}
+				} else {
+					hangmanGame.guesses.push(userLetter);
+					hangmanGame.guessesLeft--;
+					document.querySelector('#guessesLeft').innerHTML = hangmanGame.guessesLeft;
+					document.querySelector('#lettersGuessed').innerHTML = hangmanGame.guesses;
+					if(hangmanGame.guessesLeft == 0) {
+						gameStarted = false;
+						document.querySelector('#picture').src = hangmanGame.movie.image;
+						hangmanGame.losses++
+						document.querySelector('#wins').innerHTML = this.wins;
+    					document.querySelector('#losses').innerHTML = this.losses;
+					}
 				}
-			} else {
-				var msg = "Duplicate Letter : "+userLetter; 
-				alert(msg);
-			}
 		}
-	} else {
-		alert("Please press a key for a letter in alphabet");
-	}
-	
 }
